@@ -57,3 +57,52 @@ titre.addEventListener("click", () => {
     titre.textContent = "D.O.M Events";
   }
 });
+
+let Allume = document.querySelector("#Allume");
+Allume.addEventListener("click", () => {
+  titre.classList.add("titre");
+});
+
+let Eteindre = document.querySelector("#Eteindre");
+Eteindre.addEventListener("click", () => {
+  titre.classList.remove("titre");
+});
+
+let Interrupteur = document.querySelector("#Interrupteur");
+Interrupteur.addEventListener("click", () => {
+  titre.classList.toggle("titre");
+});
+
+document.addEventListener("keyup", function (eventClavier) {
+  console.log("Yes Moi ECRIRE");
+  console.log(eventClavier);
+  console.log(eventClavier.key);
+});
+
+document.addEventListener("click", (eventClicke) => {
+  console.log(eventClicke);
+});
+
+const images = ["diddy1.jpg", "diddy2.avif", "diddy3.jpeg"];
+
+// Fonction pour afficher une image aléatoire à la position du clic
+function afficherImageAleatoire(x, y) {
+  // Sélectionne une image aléatoire dans le tableau
+  const imageAleatoire = images[Math.floor(Math.random() * images.length)];
+
+  const imgElement = document.createElement("img");
+  imgElement.src = imageAleatoire;
+  imgElement.alt = "Image aléatoire";
+  imgElement.style.width = "200px";
+  imgElement.style.position = "absolute";
+  imgElement.style.left = `${x}px`;
+  imgElement.style.top = `${y}px`;
+
+  document.body.appendChild(imgElement);
+}
+
+document.addEventListener("click", (eventClicke) => {
+  console.log(eventClicke);
+
+  afficherImageAleatoire(eventClicke.clientX, eventClicke.clientY);
+});
