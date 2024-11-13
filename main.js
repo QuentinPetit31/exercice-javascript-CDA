@@ -1,7 +1,4 @@
 import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.js";
 
 document.querySelector("#app").innerHTML = `
   <div>
@@ -105,4 +102,36 @@ document.addEventListener("click", (eventClicke) => {
   console.log(eventClicke);
 
   afficherImageAleatoire(eventClicke.clientX, eventClicke.clientY);
+});
+
+VANTA.FOG({
+  el: "#app",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.0,
+  minWidth: 200.0,
+  highlightColor: 0xffffff,
+  lowlightColor: 0xffffff,
+  baseColor: 0xff0000,
+  blurFactor: 0.35,
+  speed: 2.1,
+  zoom: 2.1,
+});
+
+const laBar = document.querySelector(".bar");
+document.addEventListener("scroll", function (event) {
+  console.log(event);
+  //Le scrollMax = hauteur de la page - hauteur de affichage
+  const scrollMax = document.body.scrollHeight - window.innerHeight;
+  // On fait un pourcentage du scroll de l'utilisateur
+  const onEstOu = (window.scrollY / scrollMax) * 100;
+  //Enfin on assigne ce pourcentage de scroll
+  //à la width(%) du style de la bar.
+  laBar.style.width = onEstOu + "%";
+  console.log(`
+      Hauteur page : ${document.body.scrollHeight}
+      Hauteur affichage : ${window.innerHeight}
+      Scroll Position : ${window.scrollY}
+      pourcentage de scroll :${onEstOu} %`);
 });

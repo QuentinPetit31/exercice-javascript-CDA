@@ -26,12 +26,14 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url("back.avif");
+  /* background-image: url("back.avif"); */
+  text-align: center;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: blanchedalmond;
 }
 
 #app {
@@ -104,4 +106,19 @@ button:focus-visible {
 
 .Interrupteur {
   background-color: blueviolet;
+}
+
+.boxBar {
+  z-index: 1;
+  width: 100%;
+  border: 5px solid blueviolet;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.bar {
+  height: 21px;
+  background: turquoise;
+  width: 0%;
 }
